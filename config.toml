@@ -1,0 +1,13 @@
+[http]
+timeout_seconds = 10
+
+[retry]
+attempts = 3
+delay_seconds = 1
+
+[circuit_breaker]
+max_requests = 3
+interval_seconds = 10
+timeout_seconds = 30
+min_requests = 3
+failure_ratio = 0.6

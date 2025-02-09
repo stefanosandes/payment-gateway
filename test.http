@@ -1,0 +1,36 @@
+# Send a payment request
+# Uasecase: POST /payments: Processar um pagamento.
+# @name processPayment
+POST http://localhost:8080/payments
+Content-Type: application/json
+
+{
+  "amount": 100.0,
+  "currency": "BRL",
+  "description": "Test payment",
+  "card": {
+    "number": "123456789",
+    "holderName": "Stefano Sandes",
+    "cvv": "123",
+    "expirationDate": "12/2025",
+    "installments": 1
+  }
+}
+
+###
+
+# Get a transaction details
+# Usecase: GET /payments/{id} (bônus)
+GET http://localhost:8080/payments/{{processPayment.response.body.id}}
+Accept: application/json
+
+###
+
+# Refund a payment
+# Usecase: POST /refunds (bônus)
+POST http://localhost:8080/refund/{{processPayment.response.body.id}}
+Content-Type: application/json
+
+{
+    "amount": 100.0
+}
