@@ -11,3 +11,4 @@ interval_seconds = 10
 timeout_seconds = 30
 min_requests = 3
 failure_ratio = 0.6
+# failure_ratio = 0.5
